@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Peace Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Mental Peace Detector</h1>
+
+    <!-- Input Form -->
+    <div class="card">
+      <form id="peaceForm">
+        <label>Mood (1-10):</label>
+        <input type="number" id="mood" min="1" max="10" required>
+
+        <label>Stress Level (1-10):</label>
+        <input type="number" id="stress" min="1" max="10" required>
+
+        <label>Sleep Hours (1-10):</label>
+        <input type="number" id="sleep" min="1" max="10" required>
+
+        <button type="submit">Check Peace</button>
+        <button type="button" id="clearBtn" class="reset-btn">Reset Data</button>
+      </form>
+    </div>
+
+    <h2 id="result"></h2>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard">
+      
+      <!-- Peace Score Circle -->
+      <div class="card">
+        <h3>Peace Score</h3>
+        <div class="circular-container">
+          <svg class="circular-chart" viewBox="0 0 36 36">
+            <path class="circle-bg"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path id="circle" class="circle"
+              stroke-dasharray="0, 100"
+              d="M18 2.0845
+                 a 15.9155 15.9155 0 0 1 0 31.831
+                 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <div class="circle-text" id="progressText">0/10</div>
+        </div>
+      </div>
+
+      <!-- Pie Chart -->
+      <div class="card">
+        <h3>Mood Analysis</h3>
+        <canvas id="peaceChart" width="200" height="200"></canvas>
+      </div>
+
+      <!-- History -->
+      <div class="card history-card">
+        <h3>History</h3>
+        <ul id="history"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
